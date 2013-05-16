@@ -31,6 +31,12 @@ unless node['platform'] == 'windows'
 	  group root_group
 	  mode 0755
 	end
+
+        cookbook_file "/usr/local/bin/rmcpan" do
+          owner "root"
+          group root_group
+          mode 0755
+        end
 else
 	installer = "strawberry-perl-#{node['perl']['maj_version']}.#{node['perl']['min_version']}.#{node['perl']['sub_version']}-#{node['perl']['bitness']}.msi"
 		
